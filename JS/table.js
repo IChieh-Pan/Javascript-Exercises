@@ -57,7 +57,7 @@ function filter() {
         }
         else {
             if (dataset[x].year === "default") {
-                // result.push(dataset[x]);
+                result.push(dataset[x]);
             }
         }
   
