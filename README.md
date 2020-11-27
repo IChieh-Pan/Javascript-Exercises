@@ -1,14 +1,14 @@
 # Javascript Exercise
-##### A webpage that uses free API data resource from The Neighborhood Data for Social Change (NDSC) platform.
-------------------
+### A webpage that uses free API data resource from The Neighborhood Data for Social Change (NDSC) platform.
+------
 
 ### Motivation 🏭
-------------------
+
 Gentrification is one of the biggest issue in urban cities. Berlin residents are suffering from the rising rent price each year. The govenrment passed the rent cap law that is going to implement from 2020 spring. ....
 
 
 ### Languages
-------------------
+------
 **Javascript** <br>
 **HTML**<br>
 **Bootstrap**<br>
