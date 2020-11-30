@@ -46,25 +46,49 @@ function createTable (dataset) {
 }
 
 
+//Get unique values from attributes in an array 
+const yearMap = new Set(dataset.map(dataset => dataset.year));
+const yearCount = [...yearMap];
+console.log(yearCount);
+
+const ngrhoodCount = [...new Set(dataset.map(dataset => dataset.neighborhood))]
+console.log(ngrhoodCount);
+
+
+//Populate dropdown list from unique value array
+yearCount.forEach(function (item) {
+    function countYear() {
+        const dropdown = document.getElementById("filterBtn");
+        const yearList = document.createElement("option");
+        yearList.textContent = item;
+        yearList.value = item;
+        dropdown.appendChild(yearList);
+    }
+    countYear();
+});
+
+
 
 function filter() {
     var result = [];
     var q = document.getElementById("filterBtn").value;
 
     for (var x = 0; x < dataset.length; x++) {
-        if (dataset[x].year != "undefined" && dataset[x].year === q) {
-            result.push(dataset[x]);
-        }
-        else {
-            if (dataset[x].year === "default") {
+      if (dataset[x].year === q) {
+        result.push(dataset[x]);
+      }
+      else {
+        result.push(dataset);
+      }
+    }
+/*         else if  (dataset[x].year === q) {
                 result.push(dataset[x]);
             }
-        }
-  
+        } */
     console.log(result);
     createTable(result);
-    }
 }
+
 
 
 

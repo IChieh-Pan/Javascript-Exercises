@@ -1,5 +1,6 @@
 
-function createTable (dataset) {
+//Create table from dataset
+function createTable(dataset) {
     var body = document.getElementById("property-table");
     body.innerHTML = "";
     var table = document.createElement("table");
@@ -21,29 +22,31 @@ function createTable (dataset) {
     tr.appendChild(th);
 
     thead.appendChild(tr);
-    table.appendChild(thead);  
+    table.appendChild(thead);
     
     
-    for (var i = 0; i < dataset.length; i++) {
+    dataset.forEach(item => {
+        // for (var i = 0; i < dataset.length; i++) {
         tr = document.createElement('tr');
         td1 = document.createElement('td');
-        td1.innerHTML = dataset[i].neighborhood;
+        td1.innerHTML = item.neighborhood;
         tr.appendChild(td1);
 
         td2 = document.createElement('td');
-        td2.innerHTML = dataset[i].year;
+        td2.innerHTML = item.year;
         tr.appendChild(td2);
 
         td3 = document.createElement('td');
-        td3.innerHTML = dataset[i].amount;
+        td3.innerHTML = item.amount;
         tr.appendChild(td3);
         
         tBody.appendChild(tr);
-
-    }
+    });
     table.appendChild(tBody);
     body.appendChild(table);
-}
+};
+
+createTable(dataset);
 
 
 //Get unique values from attributes in an array 
@@ -55,10 +58,7 @@ const ngrhoodCount = [...new Set(dataset.map(dataset => dataset.neighborhood))]
 console.log(ngrhoodCount);
 
 
-//Populate dropdown list from array
-const perYear = yearCount.split
-console.log(perYear);
-
+//Populate dropdown list from unique value array
 yearCount.forEach(function (item) {
     function countYear() {
         const dropdown = document.getElementById("filterBtn");
@@ -73,7 +73,40 @@ yearCount.forEach(function (item) {
 
 
 
+//control select tag with array attribute value 
 function filter() {
+    let result = [];
+    let q = document.getElementById("filterBtn").value;
+    let w = document.createElement("option");
+    let a = dataset.forEach.year;
+    if ( document.createElement("option").value === "default") {
+        createTable(dataset);
+    }
+    dataset.forEach(item => {
+        if (item.year === q) {
+            result.push(item);
+        }
+        console.log(result);
+        createTable(result);
+    });
+}
+    
+    
+  /*   for (var x = 0; x < dataset.length; x++) {
+         if (dataset[x].year === q) {
+            result.push(dataset[x]);
+        } */
+
+
+
+//DOM control of select tag "onChange" event listener
+function showSelected() {
+    filter();  
+}
+
+
+//
+/* function filter() {
     let result = [];
     let q = document.getElementById("filterBtn").value;
 
@@ -84,7 +117,7 @@ function filter() {
 
     dataset.forEach(callback)
     }
-    filter()
+    filter() */
 
     /* for (var x = 0; x < dataset.length; x++) {
         if (dataset[x].year != "undefined" && dataset[x].year === q) {
@@ -96,33 +129,8 @@ function filter() {
             }
         } */
   
-    console.log(result);
-    createTable(result);
-    }
-
-
-
-//DOM control
-function showSelected() {
-    filter();  
-}
 
 
 
 
-function filter() {
-    var result = [];
-    var q = document.getElementById("filterBtn").value;
-
-    for (var x = 0; x < dataset.length; x++) {
-        if (dataset[x].year === 'default') {
-            console.log(filter);
-        }
-         if (dataset[x].year === q) {
-            result.push(dataset[x]);
-        }
-    console.log(result);
-    createTable(result);
-    }
-}
 
