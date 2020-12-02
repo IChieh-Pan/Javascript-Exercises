@@ -1,6 +1,4 @@
 
-
-
 function fetchData() {
   fetch("https://usc.data.socrata.com/resource/4a97-v5tx.json")
     .then((response) => response.json())
