@@ -5,16 +5,11 @@ const fetchData = async () => {
   );
   const data = await response.json();
   return data;
-  setEventListeners(data);
-  unique(data);
-  filter(data);
 };
 
 
-//Create table from dataset
 
 function createTable(data) {
-  // console.log(createTable(data));
   let body = document.getElementById("property-table");
   body.innerHTML = "";
   let table = document.createElement("table");
@@ -59,10 +54,6 @@ function createTable(data) {
 }
 
 
-
-
-
-
 //Get unique values from attributes in an array
 function unique(data)  {
   const yearMap = new Set(data.map((data) => data.year));
@@ -89,7 +80,7 @@ const dropdown = (yearCount) => {
 
 
 
-//control select tag with array attribute value
+//control select tag with array attribute value (using .filter() function)
 function filter(data) {
   let result = [];
   let q = document.getElementById("filterBtn").value;
@@ -97,14 +88,8 @@ function filter(data) {
     createTable(data);
   } else {
     const filterArray = data.filter((item) => {
-      return item.year === q;
+       return  q === item.year;
     });
-
-        data.forEach((item) => {
-        if (item.year === q) {
-          result.push(item);
-        }
-      });
     createTable(filterArray);
   }
 }
@@ -115,23 +100,16 @@ const setEventListeners = (data) => {
     .addEventListener("change", (event) => {
       filter(data);
     });
+  
+  const checkbox = document.getElementById("showBefore2012");
+  checkbox.addEventListener("change", (e) => {
+    if (e.target.checked) {
+      tableDataFilter(data);
+    } else {
+      createTable(data);
+    }
+  });
 };
-
-
-const controller = async () =>{
-  const data = await fetchData();
-  // console.log(data);
-  createTable(data);
-  const uniqueDates = unique(data);
-  dropdown(uniqueDates)
-  const check = tableDataFilter(data);
-  filter(data);
-  showData(check);
-  setEventListeners(data);
-
-}
-controller();
-
 
 function tableDataFilter(data) {
   let result = [];
@@ -144,10 +122,31 @@ function tableDataFilter(data) {
   createTable(result);
 }
 
-function showData(data) {
-  if (document.getElementById("showBefore2012").checked) {
+
+
+
+/* function showData(data) {
+  if (checkbox.checked) {
     tableDataFilter(data);
   } else {
     fetchData(data);
   }
+} */
+
+
+
+//controller
+const controller = async () => {
+  const data = await fetchData();
+  // console.log(data);
+  createTable(data);
+  const uniqueDates = unique(data);
+  dropdown(uniqueDates)
+  tableDataFilter(data);
+  filter(data);
+  setEventListeners(data);
+
 }
+controller();
+
+

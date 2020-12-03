@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/CSS/globalstyle.css" />
+    <title>List</title>
+  </head>
+  <!-- <div id="myData"></div> -->
+  <body>
+    <div class="mainContainer">
+      <h1>Table of Properties</h1>
+
+      <select id="filterBtn" onChange="showSelected()">
+        <option id="showAll" selected="selected" value="default">
+          Filter by year
+        </option>
+      </select>
+       <input type="checkbox" id="showBefore2012" value="before2012">
+  <label for="showBefore2012">Show data before 2011</label><br>
+      <div id="property-table"></div>
+    </div>
+
+    <!-- <script src="/JS/dataset.js"></script> -->
+    <!-- <script src="/JS/dataset.js" async></script> -->
+    <script src="/JS/table_new2.js"></script>
+    <!-- <script src="/JS/table.js"></script> -->
+  </body>
+</html>
