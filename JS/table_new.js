@@ -5,7 +5,7 @@ function fetchData() {
     .then((data) => {
       console.log("fetch", data);
     });
-  console.log("data :>> ", fetchData);
+  // console.log("data :>> ", fetchData);
   fetchData();
 };
 
@@ -48,7 +48,6 @@ function fetchData() {
     table.appendChild(thead);
 
     dataset.forEach((item) => {
-      // for (var i = 0; i < dataset.length; i++) {
       tr = document.createElement("tr");
       td1 = document.createElement("td");
       td1.innerHTML = item.neighborhood;
@@ -157,3 +156,7 @@ function fetchData() {
                 result.push(dataset[x]);
             }
         } */
+
+
+
+
