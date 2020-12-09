@@ -1,9 +1,75 @@
+
+@font-face{
+    font-family: "Montserrat";
+    src: url(/Montserrat/Montserrat-ExtraBold.ttf);
+    font-weight: 800;
+}
+
+
+
+.row.justify-content-center {
+padding: 30px 5px;
+}
+.HomePageHeader {
+  font-family: "Montserrat";
+  font-weight: 800;
+  font-size: 60px;
+  color:#744ABC;
+  text-align: center;
+}
+
+.imgContainer {
+  position: relative;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 37%;
+  transform: translate(-30%, -50%);
+  z-index: 100;
+  word-wrap: normal;
+}
+
+
+
+
+.navbar-brand {
+  margin-left: 20px;
+
+}
+.filterContainer {
+  padding: 20px 10px;
+  /* border: 1px solid #d6d6d6; */
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+}
+
+.selectContainer {
+    padding: 10px 7px;
+    background-color: #ead0ec;
+  }
+
+
+p {
+  color: rgb(32, 32, 32);
+  font-size: 14px;
+  line-height: 1.4rem;
+}
+h1 {
+  font-size: 40px;
+  color: #744ABC;
+  font-family: sans-serif;
+  font-weight: 900;
+  text-align: left;
+}
+
 .mainContainer {
   margin: 20px 20px;
 }
 
 .bg-light {
-  background-color: #ffdc13 !important;
+  background-color: #ffea73 !important;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -13,11 +79,14 @@
 .content {
   padding: 10px 30px;
 }
-
+.BtnContainer {
+  display: inline;
+  width: 100%;
+}
   .showBtn {
     padding: 10px 20px;
     border: 2px rgb(39, 39, 39) solid;
-    background-color: #ffdc13;
+    background-color: #ffea73;
     border-radius: 9px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -25,7 +94,8 @@
   }
   .one-col-paragraph {
     margin: 20px 0px;
-    max-width: 70%;
+    max-width: 60%;
+    display: inline-block;
   }
 
 /*   .standardText {
@@ -35,7 +105,7 @@
     color: #333;
   } */
 
-  th {
+  /* th {
     padding: 10px 20px;
   }
   td {
@@ -43,7 +113,7 @@
   }
   thead {
     text-align: left;
-  }
+  } */
   #filterBtn {
     border: 1px #333 solid;
     display: inline-block;
@@ -51,46 +121,50 @@
     border-radius: 8px;
   }
 
-/* This is the dropdown menu style */
 
-  .dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
   
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown a:hover {background-color: #ddd;}
-  
-  .show {display: block;}
 
-  /* End of dropdown style */
+
+  /*Bootstrap table CSS*/
+
+.table-responsive-stack tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+
+.table-responsive-stack td,
+.table-responsive-stack th {
+   display:block;
+/*flex-grow | flex-shrink | flex-basis*/
+   -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+.table-responsive-stack .table-responsive-stack-thead {
+   font-weight: bold;
+  }
+  
+
+@media screen and (max-width: 768px) {
+   .table-responsive-stack tr {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      border-bottom: 3px solid #ccc;
+      display:block;
+   }
+  }
+
+/* @media (min-width: 400px)
+.container {
+    max-width: 1200px 
+} */
+
 
