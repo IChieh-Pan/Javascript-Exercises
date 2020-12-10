@@ -80,6 +80,7 @@ const dropdown = (yearCount) => {
   });
 };
 
+
 //control select tag with array attribute value (using .filter() function)
 function filter(data) {
   let q = document.getElementById("filterBtn").value;
