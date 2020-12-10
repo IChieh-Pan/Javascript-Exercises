@@ -9,7 +9,8 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/CSS/apod.css" media="screen">
+    <!-- <link rel="stylesheet" href="/CSS/apod.css" media="screen"> -->
+    <link rel="stylesheet" href="/CSS/globalstyle.css" />
     <link
       rel="icon"
       type="image/svg"
@@ -49,7 +50,7 @@
             <a
               href="/html/table2.html"
               class="nav-link m-2 menu-item nav-active"
-              >See Statistics</a
+              >Statistics</a
             >
           </li>
           <li class="nav-item">
@@ -63,14 +64,31 @@
         </ul>
       </div>
     </nav>
-      <div class="mainContainer">
-        <div class="filterBox">
-          <input type="checkbox" id="sortCopyright" name="sortCopyright">
-<label for="sortCopyright">Sort Copyright</label><br>
-        <input type="date" id="datePicker" name="date"><br>
-        <label for="datePicker">filter by post date</label>
+      <!-- <div class="mainContainer"> -->
+        <div class="row justify-content-center">
+      <h1>Our Galatic Neighborhood</h1>
+    </div>
+    <div class="selectContainer">
+      <!-- <div class="container"> -->
+      
+      <div class="filterContainer">
+        <div class="row vertical-align">
+          <div class="col-md-4"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md">
+            <div class="form-check" id="datePickerNeighbor">
+              <label for="datePicker">Filter by Date</label>
+              <input type="date" id="datePicker" name="date">
+            </div>
+          </div>
+        <div class="filterBox"></div>
+          <!-- <input type="checkbox" id="sortCopyright" name="sortCopyright"> -->
         </div>
-        <table class="table table-striped table-dark" id="property-table"></table>
+      </div>
+      </div>
+      <div class="mainContainer">
+        <table class="table table-striped table-sm-responsive table-hover table-gray" id="property-table"></table>
       </div>
     <!-- </div> -->
 

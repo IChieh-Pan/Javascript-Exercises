@@ -26,15 +26,15 @@ function createTable(data) {
   let thead = document.createElement("thead");
   let tr = document.createElement("tr");
   th = document.createElement("th");
-  th.innerHTML = "title";
+  th.innerHTML = "Title";
   tr.appendChild(th);
 
   th = document.createElement("th");
-  th.innerHTML = "copyright";
+  th.innerHTML = "Copyright";
   tr.appendChild(th);
 
   th = document.createElement("th");
-  th.innerHTML = "date";
+  th.innerHTML = "Date";
   tr.appendChild(th);
 
   thead.appendChild(tr);

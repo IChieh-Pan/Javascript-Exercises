@@ -6,15 +6,16 @@ const fetchData = async () => {
   return data;
 };
 
+
+
 function createTable(data) {
-  
     let table = document.getElementById("property-table");
     table.innerHTML = "";
     let tBody = document.createElement("tBody");
     let th;
     let td;
     let thead = document.createElement("thead");
-    document.getElementsByClassName("thead").className = "thead-dark";
+    thead.classList.add("thead-dark")
     let tr = document.createElement("tr");
     th = document.createElement("th");
     th.innerHTML = "Neighborhood";
@@ -34,25 +35,25 @@ function createTable(data) {
   data.forEach((item) => {
     if (yearValue(item) && amountValue(item)) {
       tr = document.createElement("tr");
-      td1 = document.createElement("td");
-      td1.innerHTML = item.neighborhood;
-      tr.appendChild(td1);
+      td = document.createElement("td");
+      td.innerHTML = item.neighborhood;
+      tr.appendChild(td);
 
-      td2 = document.createElement("td");
-      td2.innerHTML = item.year;
-      tr.appendChild(td2);
+      td = document.createElement("td");
+      td.innerHTML = item.year;
+      tr.appendChild(td);
 
-      td3 = document.createElement("td");
-      td3.innerHTML = item.amount;
-      tr.appendChild(td3);
+      td = document.createElement("td");
+      td.innerHTML = item.amount;
+      tr.appendChild(td);
 
       tBody.appendChild(tr);
 
       }
     });
-    table.appendChild(tBody);
-  
+    table.appendChild(tBody); 
 }
+
 
 // createTable();
 
@@ -187,7 +188,7 @@ const filterAmount = (data, newAmount) => {
 function tableDataFilter(data) {
   let result = [];
   data.forEach((item) => {
-    if (item.year < 2016) {
+    if (item.year < 2012) {
       result.push(item);
     }
     // console.log(result);
@@ -242,8 +243,8 @@ $(document).ready(function () {
   $(".table-responsive-stack").each(function () {
     var thCount = $(this).find("th").length;
     var rowGrow = 100 / thCount + "%";
-    //console.log(rowGrow);
-    $(this).find("th, td").css("flex-basis", rowGrow);
+    console.log("f",rowGrow);
+    $(this).find("th, td").css("flex-basis", auto);
   });
 
   function flexTable() {

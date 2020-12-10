@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap"
       rel="stylesheet"
     />
-    <title>See Statistics</title>
+    <title>Statistics</title>
   </head>
   <!-- <div id="myData"></div> -->
   <body>
@@ -61,7 +61,7 @@
             <a
               href="/html/table2.html"
               class="nav-link m-2 menu-item nav-active"
-              >See Statistics</a
+              >Statistics</a
             >
           </li>
           <li class="nav-item">
@@ -86,6 +86,20 @@
       <div class="filterContainer">
         <div class="row vertical-align">
           <div class="col-md">
+            <div class="form-check">
+              <input type="checkbox" id="sortAscending" />
+              <label for="sortAscending">Sort Neighborhood</label>
+            </div>
+          </div>
+          
+          <div class="col-md">
+            <div class="form-check">
+              <input type="checkbox" id="showBefore2012"/>
+              <label for="showBefore2012">Date Before 2012</label>
+            </div>
+          </div>
+          
+          <div class="col-md">
             <select id="filterBtn">
               <option id="showAll" selected="selected" value="default">
                 Filter by year
@@ -95,37 +109,22 @@
 
           <div class="col-md">
             <div class="form-check">
-              <input type="checkbox" id="showBefore2012"/>
-              <label for="showBefore2012">Date Before 2016</label>
-            </div>
-          </div>
-
-          <div class="col-md">
-            <div class="form-check">
-              <input type="checkbox" id="sortAscending" />
-              <label for="sortAscending">Sort Neighborhood</label>
-            </div>
-          </div>
-
-          <div class="col-md">
-            <div class="form-check">
               <input type="checkbox" id="filterAmount" />
               <label for="filterAmount">Amount Above 1000</label>
             </div>
           </div>
-          <form id="amountForm">
+          <!-- <form id="amountForm">
             <input type="text" id="amountInput" maxlength="10" />
             <button type="button" onclick="inputValue()">Filter</button>
-          </form>
+          </form> -->
           </div>
         </div>
       </div>
     </div>
     <div class="mainContainer">
       <table
-        class="table table-bordered table-striped table-responsive-stack"
-        id="property-table"
-      ></table>
+        class="table table-bordered table-striped table-xs-responsive table-hover"
+        id="property-table">
     </div>
 
     <script
