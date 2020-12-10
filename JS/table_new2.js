@@ -1,3 +1,4 @@
+// Async fetching data
 const fetchData = async () => {
   const response = await fetch(
     "https://usc.data.socrata.com/resource/4a97-v5tx.json"
@@ -6,31 +7,30 @@ const fetchData = async () => {
   return data;
 };
 
-
-
+//Create table
 function createTable(data) {
-    let table = document.getElementById("property-table");
-    table.innerHTML = "";
-    let tBody = document.createElement("tBody");
-    let th;
-    let td;
-    let thead = document.createElement("thead");
-    thead.classList.add("thead-dark")
-    let tr = document.createElement("tr");
-    th = document.createElement("th");
-    th.innerHTML = "Neighborhood";
-    tr.appendChild(th);
+  let table = document.getElementById("property-table");
+  table.innerHTML = "";
+  let tBody = document.createElement("tBody");
+  let th;
+  let td;
+  let thead = document.createElement("thead");
+  thead.classList.add("thead-dark");
+  let tr = document.createElement("tr");
+  th = document.createElement("th");
+  th.innerHTML = "Neighborhood";
+  tr.appendChild(th);
 
-    th = document.createElement("th");
-    th.innerHTML = "Year";
-    tr.appendChild(th);
+  th = document.createElement("th");
+  th.innerHTML = "Year";
+  tr.appendChild(th);
 
-    th = document.createElement("th");
-    th.innerHTML = "Amount";
-    tr.appendChild(th);
+  th = document.createElement("th");
+  th.innerHTML = "Amount";
+  tr.appendChild(th);
 
-    thead.appendChild(tr);
-    table.appendChild(thead);
+  thead.appendChild(tr);
+  table.appendChild(thead);
 
   data.forEach((item) => {
     if (yearValue(item) && amountValue(item)) {
@@ -48,16 +48,12 @@ function createTable(data) {
       tr.appendChild(td);
 
       tBody.appendChild(tr);
-
-      }
-    });
-    table.appendChild(tBody); 
+    }
+  });
+  table.appendChild(tBody);
 }
 
-
-// createTable();
-
-//Get unique values from attributes in an array
+//Get unique values from year attribute in data
 function unique(data) {
   const yearMap = new Set(data.map((data) => data.year));
   console.log(yearMap);
@@ -80,7 +76,6 @@ const dropdown = (yearCount) => {
   });
 };
 
-
 //control select tag with array attribute value (using .filter() function)
 function filter(data) {
   let q = document.getElementById("filterBtn").value;
@@ -99,10 +94,10 @@ const setEventListeners = (data) => {
     .getElementById("filterBtn")
     .addEventListener("change", (event) => {
       // filter(data);
-       createTable(data);
-
+      createTable(data);
     });
 
+  //Checkbox event listener for 2012
   const checkbox = document.getElementById("showBefore2012");
   checkbox.addEventListener("change", (e) => {
     if (e.target.checked) {
@@ -112,33 +107,7 @@ const setEventListeners = (data) => {
     }
   });
 
-
-  const checkbox2 = document.getElementById("sortAscending");
-  // console.log("sortcheckbox :>> ", checkbox2);
-  checkbox2.addEventListener("change", (event) => {
-    if (event.target.checked) {
-      createSort(data);
-      // createTable(data);
-    } else {
-      console.log(event.target);
-      createTable(data);
-    }
-  });
-
-  const checkbox3 = document.getElementById("filterAmount");
-  checkbox3.addEventListener("change", (event) => {
-     createTable(data);
-    
-    // if (event.target.checked) {
-    //   // console.log('x',filterAmount(data));
-    //   const newList = filterAmount(data, 1000);
-    //   createTable(newList);
-    // } else {
-    //   createTable(data);
-    // }
-  });
-};
-
+  //Sorting function
   function createSort(data) {
     const sorted = data;
     sorted.sort(function (a, b) {
@@ -152,8 +121,27 @@ const setEventListeners = (data) => {
     // console.log("object :>> ", emptySort.push(sort));
   }
 
+  //Checkbox event listener for sorting
+  const checkbox2 = document.getElementById("sortAscending");
+  // console.log("sortcheckbox :>> ", checkbox2);
+  checkbox2.addEventListener("change", (event) => {
+    if (event.target.checked) {
+      createSort(data);
+      // createTable(data);
+    } else {
+      console.log(event.target);
+      createTable(data);
+    }
+  });
 
+  //Checkbox event listener for amount> 1000
+  const checkbox3 = document.getElementById("filterAmount");
+  checkbox3.addEventListener("change", (event) => {
+    createTable(data);
+  });
+};
 
+//Combine filters criteria
 const yearValue = (item) => {
   const input = document.getElementById("filterBtn").value;
   return item.year === input || input === "default" ? true : false;
@@ -163,10 +151,9 @@ function amountValue(item) {
   if (document.getElementById("filterAmount").checked) {
     if (item.amount > 1000) {
       return true;
-    }
-    else return false
+    } else return false;
   } else {
-    return true 
+    return true;
   }
 }
 /* 
@@ -177,8 +164,6 @@ function amountValue(item) {
   let 
 })
  */
-    
-  
 
 const filterAmount = (data, newAmount) => {
   const amountFilter = data.filter((item) => item.amount > newAmount);
@@ -244,7 +229,7 @@ $(document).ready(function () {
   $(".table-responsive-stack").each(function () {
     var thCount = $(this).find("th").length;
     var rowGrow = 100 / thCount + "%";
-    console.log("f",rowGrow);
+    console.log("f", rowGrow);
     $(this).find("th, td").css("flex-basis", auto);
   });
 
@@ -262,7 +247,6 @@ $(document).ready(function () {
         $(this).find("thead").show();
       });
     }
-    // flextable
   }
 
   flexTable();
@@ -270,6 +254,4 @@ $(document).ready(function () {
   window.onresize = function (event) {
     flexTable();
   };
-
-  // document ready
 });
