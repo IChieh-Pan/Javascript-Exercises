@@ -18,14 +18,17 @@ function createTable(data) {
   thead.classList.add("thead-dark");
   let tr = document.createElement("tr");
   th = document.createElement("th");
+  th.classList.add("sticky-top");
   th.innerHTML = "Neighborhood";
   tr.appendChild(th);
 
   th = document.createElement("th");
+  th.classList.add("sticky-top");
   th.innerHTML = "Year";
   tr.appendChild(th);
 
   th = document.createElement("th");
+  th.classList.add("sticky-top");
   th.innerHTML = "Amount";
   tr.appendChild(th);
 
@@ -186,6 +189,7 @@ const show2016 = (item) => {
   const show2016Value = document.getElementById("showBefore2012").value;
   return show2016Value;
 };
+
 /* function showData(data) {
   if (checkbox.checked) {
     tableDataFilter(data);

@@ -12,6 +12,10 @@
 }
 
 
+.thead {
+   position:sticky;
+   top: 0 ;
+}
 
 .custom-control-label::before, 
 .custom-control-label::after {
