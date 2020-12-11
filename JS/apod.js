@@ -24,16 +24,20 @@ function createTable(data) {
   let th;
   let td;
   let thead = document.createElement("thead");
+  thead.classList.add("thead-dark");
   let tr = document.createElement("tr");
   th = document.createElement("th");
+  th.classList.add("sticky-top");
   th.innerHTML = "Title";
   tr.appendChild(th);
 
   th = document.createElement("th");
+  th.classList.add("sticky-top");
   th.innerHTML = "Copyright";
   tr.appendChild(th);
 
   th = document.createElement("th");
+  th.classList.add("sticky-top");
   th.innerHTML = "Date";
   tr.appendChild(th);
 
