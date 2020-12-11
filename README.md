@@ -8,12 +8,11 @@ Gentrification is one of the biggest issue in urban cities. Berlin residents are
 
 ### Approach
 
-Asynchronous Javascript -AJAX
-Async callbacks 
-Async await method 
-Ternary operator 
--
-Bootstrap 
+Asynchronous Javascript -AJAX<br>
+Async callbacks <br>
+Async await method <br>
+Ternary operator <br>
+Bootstrap <br>
 
 
 ### Languages & Framework
