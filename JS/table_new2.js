@@ -190,14 +190,6 @@ const show2016 = (item) => {
   return show2016Value;
 };
 
-/* function showData(data) {
-  if (checkbox.checked) {
-    tableDataFilter(data);
-  } else {
-    fetchData(data);
-  }
-} */
-
 //controller
 const controller = async () => {
   const data = await fetchData();
