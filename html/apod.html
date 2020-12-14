@@ -8,7 +8,9 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
-    />
+    />      
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <!-- <link rel="stylesheet" href="/CSS/apod.css" media="screen"> -->
     <link rel="stylesheet" href="/CSS/globalstyle.css" />
     <link
@@ -73,8 +75,20 @@
       
       <div class="filterContainer">
         <div class="row vertical-align">
-          <div class="col-md-4"></div>
+          <div class="col-md-4">
+          </div>
+ 
           <div class="col-md-2"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md">
+            <div class="form-check" id="datePickerNeighbor">
+              <label for="datePicker">Filter by Date</label>
+              <input type="month" id="fromDate" name="month">to
+              <input type="month" id="toDate" name="month">
+            </div>
+          </div>
+
+          <!-- <div class="col-md-2"></div>
           <div class="col-md-2"></div>
           <div class="col-md">
             <div class="form-check" id="datePickerNeighbor">
@@ -82,7 +96,7 @@
               <input type="date" id="datePicker" name="date">
             </div>
           </div>
-        <div class="filterBox"></div>
+        <div class="filterBox"></div> -->
           <!-- <input type="checkbox" id="sortCopyright" name="sortCopyright"> -->
         </div>
       </div>
